@@ -2,9 +2,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Page title
-st.title("🏥 Lifestyle Disease Risk Analyzer")
-
-# ---------------- INPUT SECTION ----------------
+st.title("🏥 LifeStyle Disease Risk Analyzer")
+ 
+#   input section
 
 age = st.number_input("Enter your age", min_value=1, max_value=100)
 sleep = st.number_input("Sleep hours per day", min_value=0.0, max_value=24.0)
@@ -15,7 +15,7 @@ diet = st.selectbox("Diet Type",
                     ["Healthy", "Moderate", "Junk food often"])
 water = st.number_input("Water intake (litres per day)", min_value=0.0, max_value=10.0)
 
-# ---------------- LOGIC FUNCTION ----------------
+# logic function
 
 def calculate_risk(age, sleep, exercise, screen, diet, water):
 
@@ -104,7 +104,7 @@ if st.button("Analyze My Health Risk"):
 
     fig, ax = plt.subplots()
     ax.bar(diseases, scores)
-    ax.set_ylabel("Risk Score")
+    ax.set_label("Risk Score")
     ax.set_title("Lifestyle Disease Risk Analysis")
 
     st.pyplot(fig)
