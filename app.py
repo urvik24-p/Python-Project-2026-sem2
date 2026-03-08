@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # Page title
-st.title("🏥 LifeStyle Disease Risk Analyzer")
+st.title("LifeStyle Disease Risk Analyzer")
  
 #   input section
 
@@ -62,14 +62,14 @@ def calculate_risk(age, sleep, exercise, screen, diet, water):
 
 def risk_level(score):
     if score <= 2:
-        return "Low ✅"
+        return "Low "
     elif score <= 5:
-        return "Moderate ⚠️"
+        return "Moderate "
     else:
-        return "High 🔴"
+        return "High "
 
 
-# ---------------- BUTTON ----------------
+#   button section
 
 if st.button("Analyze My Health Risk"):
 
@@ -77,7 +77,7 @@ if st.button("Analyze My Health Risk"):
         age, sleep, exercise, screen, diet, water
     )
 
-    st.subheader("📊 Health Risk Report")
+    st.subheader(" Health Risk Report")
 
     st.write("**Obesity Risk:**", risk_level(obesity))
     st.write("**Diabetes Risk:**", risk_level(diabetes))
@@ -85,26 +85,27 @@ if st.button("Analyze My Health Risk"):
     st.write("**Hypertension Risk:**", risk_level(hypertension))
     st.write("**Stress Risk:**", risk_level(stress))
 
-    st.subheader("💡 Suggestions")
+    st.subheader(" Suggestions")
 
     if sleep < 7:
-        st.write("✔ Improve sleep to 7–8 hours")
+        st.write(" Improve sleep to 7–8 hours")
     if exercise in ["None", "1-2 days"]:
-        st.write("✔ Exercise at least 3 times per week")
+        st.write(" Exercise at least 3 times per week")
     if diet == "Junk food often":
-        st.write("✔ Reduce junk food consumption")
+        st.write(" Reduce junk food consumption")
     if screen > 6:
-        st.write("✔ Reduce screen time")
+        st.write(" Reduce screen time")
     if water < 2:
-        st.write("✔ Drink at least 2–3 litres of water daily")
+        st.write(" Drink at least 2–3 litres of water daily")
 
-    # -------- Graph --------
+    # graph section
     diseases = ["Obesity", "Diabetes", "Heart", "Hypertension", "Stress"]
     scores = [obesity, diabetes, heart, hypertension, stress]
 
     fig, ax = plt.subplots()
     ax.bar(diseases, scores)
-    ax.set_label("Risk Score")
+    ax.set_xlabel("Diseases")
+    ax.set_ylabel("Risk Score")
     ax.set_title("Lifestyle Disease Risk Analysis")
 
     st.pyplot(fig)

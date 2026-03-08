@@ -54,14 +54,14 @@ def calculate_risk(age, sleep, exercise, screen, diet, water):
 
 def risk_level(score):
     if score <= 2:
-        return "Low ✅"
+        return "Low "
     elif score <= 5:
-        return "Moderate ⚠️"
+        return "Moderate "
     else:
-        return "High 🔴"
+        return "High "
 
 
-# ---------------- MAIN PROGRAM ----------------
+# program section
 
 print("----- Lifestyle Disease Risk Analyzer -----\n")
 
@@ -102,7 +102,7 @@ if water < 2:
 
 print("\nStay healthy! 💚")
 
-# ---------------- GRAPH SECTION ----------------
+# graph section
 
 diseases = ["Obesity", "Diabetes", "Heart", "Hypertension", "Stress"]
 scores = [obesity, diabetes, heart, hypertension, stress]
